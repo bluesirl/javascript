@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/clock.jpg) no-repeat;
+            position: relative;
+        }
+        .clock div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/hour.png) no-repeat center center;
+        }
+        #m {
+            background-image: url(images/minute.png);
+        }
+        #s {
+            background-image: url(images/second.png);
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+</body>
+</html>
+<script>
+    // 这个案例我们只需要现在的时间
+    var hh = document.getElementById("h");  // 时针
+    var mm = document.getElementById("m");  // 分针
+    var ss = document.getElementById("s");  // 秒针
+    setInterval(clock,100);
+    function clock() {
+        var date = new Date();
+        var ms = date.getMilliseconds();  // 得到是毫秒
+        //console.log(ms);
+        var s = date.getSeconds() + ms /1000 ;   // 当前的秒数 +  走过的毫秒
+        //console.log(s);
+        var m = date.getMinutes() + s/60;    // 分数  当前的分数  + 已经过了分数
+        // console.log(m);
+        var h = date.getHours() %12 + m/60 ;  // 当前的小时  +  已经过去了 分数  / 60
+        // 我们的表盘是 12进制  所以  余 上  12   不超过 12
+        console.log(h);
+        //  4:30   小时应该是 4.5      4 +  30/60  =  4.5   就是 4个半 的位置
+        // 开始旋转
+        // 60秒     一圈 360度     一秒  6°
+        ss.style.WebkitTransform = "rotate("+s*6+"deg)";
+        // 分针     60分     一圈  360   一分钟   6°
+        mm.style.WebkitTransform = "rotate("+m*6+"deg)";
+        // 时针   12进制     一圈  360  一小时 走   360 / 12 = 30°
+        hh.style.WebkitTransform = "rotate("+h*30+"deg)";
+        ss.style.MozTransform = "rotate("+s*6+"deg)";
+        // 分针     60分     一圈  360   一分钟   6°
+        mm.style.MozTransform = "rotate("+m*6+"deg)";
+        // 时针   12进制     一圈  360  一小时 走   360 / 12 = 30°
+        hh.style.MozTransform = "rotate("+h*30+"deg)";
+
+    }
+</script>
