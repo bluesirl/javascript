@@ -1,5 +1,7 @@
 # Javascript 笔记
 
+[TOC]
+
 ## 变量
 
 - 命名必须是字母或者“_”或“$”开头
@@ -9,15 +11,15 @@
 - 区分大小写
 
 **javascript 常用关键字**
-|           |          |            |        |
-| --------- | -------- | ---------- | ------ |
-| break     | do       | instanceof | typeof |
-| case      | else     | new        | var    |
-| catch     | finally  | return     | void   |
-| continue  | for      | switch     | while  |
-| debugger* | function | this       | with   |
-| default   | if       | throw      | delete |
-| in        | try      |            |        |
+|    --     |    --    |     --     |   --   |
+| :-------: | :------: | :--------: | :----: |
+|   break   |    do    | instanceof | typeof |
+|   case    |   else   |    new     |  var   |
+|   catch   | finally  |   return   |  void  |
+| continue  |   for    |   switch   | while  |
+| debugger* | function |    this    |  with  |
+|  default  |    if    |   throw    | delete |
+|    in     |   try    |            |        |
 
 **声明多个变量**
 
@@ -687,14 +689,14 @@ var arr = [1,3,5,7,9];
 for(var k in arr) {
   console.log(k);    //  再数组里面 k  输出的索引号    0,1,2,3,4
   console.log(arr[k]);  // 输出值  1,3,5,7,9
-5      }
-6      var json = {width:500,height:500,top:100};
-7      // json.width   输出 500
-8      //  json 的属性很多 ，我们要一一得到  遍历json    key :value
-9      for(var k in json) {
-10          console.log(k);   // key      这里的k 输出的是属性
-11          console.log(json[k]);  // json[k]    输出的是属性值
-12      }
+}
+var json = {width:500,height:500,top:100};
+// json.width   输出 500
+//  json 的属性很多 ，我们要一一得到  遍历json    key :value
+for(var k in json) {
+  console.log(k);   // key      这里的k 输出的是属性
+  console.log(json[k]);  // json[k]    输出的是属性值
+}
 ```
 
 
